@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Website</title>
+
+    <link rel="stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <%= javascript_include_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js', 'data-turbolinks-track' => true %>
+    <script src="/javascripts/application.js?1310723736" type="text/javascript"></script> 
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+  <nav class="navbar navbar-inverse bg-primary">
+      <div class="container">
+        <div class="navbar-header">
+        
+          <a class="navbar-brand" href="/"><strong> My Website </strong></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class='nav navbar-nav'>
+          </ul>
+          <ul class="nav navbar-nav navbar-right bg-dark">
+          <% if current_user %>
+              <li><%= link_to 'Logout', '/logout'%></li>
+          <% else %>
+              <li><%= link_to 'Login', '/login' %></li>
+              <li><%= link_to 'Register', new_user_path %></li>
+          <% end %>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <p class="notice alert-success"><%= notice %></p>
+    <p class="alert-danger"><%= alert %></p>
+
+  <div class = 'container'>
+    <%= yield %>
+  </div>
+  </body>
+</html>

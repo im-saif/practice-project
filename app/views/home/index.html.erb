@@ -1,0 +1,7 @@
+<div class='container'>
+<% if current_user %>
+  <h2> Welcome <%= current_user.username %> </h2>
+  <% else %>
+  <h2> Register or Login to your account! </h2>
+  <% end %>
+</div>
